@@ -108,7 +108,7 @@
     alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
     alias ~="cd ~"                              # ~:            Go Home
     alias c='clear'                             # c:            Clear terminal display
-    alias which='type -all'                     # which:        Find executables
+    # alias which='type -all'                     # which:        Find executables
     alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
     alias show_options='shopt'                  # Show_options: display bash options settings
     alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
@@ -385,8 +385,13 @@ EOT
 
 #   C++
 #       vcpkg
-        alias vcpkg="./vcpkg/vcpkg"
-        alias vcpkg_update="cd ~/vcpkg && git pull && ./bootstrap-vcpkg.sh"
+        # A convenience alias.
+        # Assumes vcpkg is installed in the home directory.
+        alias vcpkg=$HOME/vcpkg/vcpkg
+
+        # Updates vcpkg by pulling the latest version from GitHub
+        # and bootstrapping vcpkg.
+        alias vcpkg_update="cd ~/vcpkg && git pull && ./bootstrap-vcpkg.sh && cd .."
 # ---------------------------------------
 
 #   Carp Lisp
@@ -470,8 +475,15 @@ EOT
 # ---------------------------------------
 
 #   Homebrew LLVM
-        # WARNING: This will add LLVM/Clang to the PATH. If a toolchain depends on an Apple Clang-specific feature,
-        #   this will break that toolchain.
+        # WARNING: This will add LLVM/Clang to the PATH. 
+        # If a toolchain depends on an Apple Clang-specific feature,
+        # this will break that toolchain. For instance, GHC 8.10+ depends on Apple Clang!
+        #
+        # However, it is sometimes useful to have LLVM/Clang on the path, for instance when:
+        #   - using a tool that does not exist in Apple Clang, like opt
+        #   - using brand new C/C++ features that Apple hasn't merged yet
+        #   - building certain tools that depend on LLVM/Clang, like Odin.
+        #
         # export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 #       # Include and Linker Paths
