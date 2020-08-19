@@ -1,0 +1,156 @@
+// Place your settings in this file to overwrite the default settings
+{
+    // Global editor settings
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 15,
+    "editor.fontWeight": "bold",
+    "editor.fontLigatures": true,
+    
+    // Tab settings
+    "editor.tabSize": 4,
+    
+    // ALWAYS insert spaces instead of tabs.
+    "editor.insertSpaces": true,
+
+    // Always override the file's settings in favour of these settings.
+    "editor.detectIndentation": false,
+
+    // Render invisible control characters.
+    "editor.renderControlCharacters": true,
+
+    // Disable this so I can just pull a folder straight in and get going.
+    "explorer.confirmDragAndDrop": false,
+
+    // Disable the minimap to save a little screen space.
+    "editor.minimap.enabled": false,
+
+    // Try for no more than 100 characters in a line.
+    "editor.rulers": [
+        100
+    ],
+
+    // Editor Icon and color scheme
+    "workbench.iconTheme": "eq-material-theme-icons-light",
+    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+
+    // Various workbench settings
+    "workbench.settings.editor": "json",
+
+    // Integrated terminal settings
+    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+
+    // File associations
+    "files.associations": {
+        "*.d":     "d",
+        "*.perl6": "raku",
+        "*.pro":   "prolog",
+        "*.p6":    "raku",
+        "*.raku":  "raku",
+        "*.rk":    "raku",
+        "kakrc":   "shellscript"
+    },
+
+    // Set plain text as the default language.
+    "files.defaultLanguage": "txt",
+
+    // Default file encoding
+    "files.encoding": "utf8",
+
+    // On deleting files, move them to the trash rather than outright deleting them.
+    "files.enableTrash": true,
+    
+    // Code Runner extension settings
+    "code-runner.executorMap": {
+        
+        "ahk": "autohotkey",
+        "autoit": "autoit3",
+        "applescript": "osascript",
+        
+        "bat": "cmd /c",
+        
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "clojure": "lein exec",
+        "coffeescript": "coffee",
+        "cpp": "cd $dir && clang++ $fileName -o $fileNameWithoutExt -std=c++17 && $dir$fileNameWithoutExt",
+        "crystal": "crystal",
+        "csharp": "scriptcs",
+        
+        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+        "dart": "dart",
+        
+        "fsharp": "fsi",
+        
+        "go": "go run",
+        "groovy": "groovy",
+        
+        "haskell": "cd $dir && ghci $fileName",
+        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+        
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "javascript": "node",
+        "julia": "julia",
+        
+        "kit": "kitc --run",
+        
+        "lisp": "sbcl --script",
+        "lua": "lua",
+        
+        "nim": "nim compile --verbosity:0 --hints:off --run",
+        
+        "ocaml": "ocaml",
+        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        
+        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+        "perl": "perl",
+        "php": "php",
+        "powershell": "powershell -ExecutionPolicy ByPass -File",
+        "python": "python3 -u",
+        
+        "r": "Rscript",
+        "racket": "racket",
+        "raku": "raku",
+        "ruby": "ruby",
+        "rust": "cd $dir && cargo run",
+        
+        "scala": "scala",
+        "scheme": "csi -script",
+        "shellscript": "bash",
+        "swift": "swift",
+
+        "typescript": "ts-node",
+
+        "vbscript": "cscript //Nologo",
+    },
+    "code-runner.runInTerminal": true,
+    
+    // Language extension settings
+    // C++
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.cStandard": "c11",
+    
+    // Java
+    "java.semanticHighlighting.enabled": true,
+
+    // Raku / Perl6
+    "perl6.libs": "/usr/local/opt/rakudo-star/lib",
+    "perl6.path": "/usr/local/opt/rakudo-star/bin",
+
+    // Prolog
+    "prolog.executablePath": "/usr/local/bin/swipl",
+
+    // Python
+    "python.pythonPath": "/Users/whowell/anaconda/envs/Qiskitenv/bin/python",
+
+    // Swift
+    "sde.languageServerMode": "sourcekit-lsp",
+    "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+    "swift.languageServerPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+
+    // Programming language-specific settings
+    "[asm]": {},
+    "[cpp]": {},
+    "[haskell]": {},
+}
