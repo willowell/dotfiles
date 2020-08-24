@@ -427,6 +427,10 @@ EOT
         [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # ---------------------------------------
 
+#   Julia
+        alias julia="/Applications/Julia-1.5.app/Contents/Resources/julia/bin/julia"
+# ---------------------------------------
+
 #   LÖVE
         alias love="/Applications/love.app/Contents/MacOS/love"
 # ---------------------------------------
