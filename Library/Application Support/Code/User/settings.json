@@ -156,5 +156,10 @@
     // Programming language-specific settings
     "[asm]": {},
     "[cpp]": {},
-    "[haskell]": {},
+    "[haskell]": { "editor.tabSize": 2 },
+    "[javascript]": { "editor.tabSize": 2 },
+    "[javascriptreact]": { "editor.tabSize": 2 },
+    "[typescript]": { "editor.tabSize": 2 },
+    "[typescriptreact]": { "editor.tabSize": 2 },
+    "window.zoomLevel": 0,
 }
