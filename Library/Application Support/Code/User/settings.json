@@ -13,7 +13,7 @@
     "editor.insertSpaces": true,
 
     // Always override the file's settings in favour of these settings.
-    "editor.detectIndentation": false,
+    "editor.detectIndentation": true,
 
     // Render invisible control characters.
     "editor.renderControlCharacters": true,
@@ -45,11 +45,11 @@
     // File associations
     "files.associations": {
         "*.d":     "d",
-        "*.perl6": "raku",
-        "*.pro":   "prolog",
-        "*.p6":    "raku",
-        "*.raku":  "raku",
-        "*.rk":    "raku",
+        "*.perl6": "perl6",
+        "*.pro":   "prolog", // To disambiguate .pl Perl files
+        "*.p6":    "perl6",
+        "*.raku":  "perl6",
+        "*.rk":    "perl6",
         "kakrc":   "shellscript"
     },
 
@@ -140,7 +140,7 @@
 
     // Raku / Perl6
     "perl6.libs": "/usr/local/opt/rakudo-star/lib",
-    "perl6.path": "/usr/local/opt/rakudo-star/bin",
+    "perl6.path": "/usr/local/opt/rakudo-star/bin/raku",
 
     // Prolog
     "prolog.executablePath": "/usr/local/bin/swipl",
@@ -156,10 +156,23 @@
     // Programming language-specific settings
     "[asm]": {},
     "[cpp]": {},
-    "[haskell]": { "editor.tabSize": 2 },
-    "[javascript]": { "editor.tabSize": 2 },
-    "[javascriptreact]": { "editor.tabSize": 2 },
-    "[typescript]": { "editor.tabSize": 2 },
-    "[typescriptreact]": { "editor.tabSize": 2 },
+    "[css][scss]": { 
+        "editor.tabSize": 2 
+    },
+    "[haskell]": {
+        "editor.autoIndent": "none",
+        "editor.tabSize": 2 
+    },
+    "[javascript][javascriptreact]": { 
+        "editor.tabSize": 2 
+    },
+    "[typescript][typescriptreact]": { 
+        "editor.tabSize": 2 
+    },
+    "[json][jsonc]": { 
+        "editor.tabSize": 2 
+    },
     "window.zoomLevel": 0,
+    "explorer.confirmDelete": false,
+    "workbench.startupEditor": "welcomePage",
 }
