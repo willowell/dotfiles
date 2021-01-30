@@ -370,11 +370,11 @@ EOT
 #   -------------------------------------
 
 #   /usr/local/sbin path for Homebrew
-    export PATH=$PATH:/usr/local/sbin:$PATH
+    export PATH=/usr/local/sbin:$PATH
 
-    export PATH=$HOME/.local/bin:$PATH
+    export PATH=/.local/bin:$PATH
 
-    export PATH=$PATH:/usr/local/opt/openssl@1.1/bin:$PATH
+    export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
 
     export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
 # --------------------------------------------------------------------------------------------------
@@ -394,8 +394,9 @@ EOT
         alias vcpkg_update="cd ~/vcpkg && git pull && ./bootstrap-vcpkg.sh && cd .."
 # ---------------------------------------
 
-#   Carp Lisp
-        export CARP_DIR=$HOME/Carp/
+#   Dart
+
+  	export PATH=$HOME/.pub-cache/bin:$PATH
 # ---------------------------------------
 
 #   Haskell
@@ -403,10 +404,10 @@ EOT
         [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
 #       Haskell
-        export PATH=$PATH:/Library/Haskell/bin:$PATH
+        export PATH=/Library/Haskell/bin:$PATH
 
 #       Cabal
-        export PATH=$PATH:/.cabal/bin:$PATH
+        export PATH=/.cabal/bin:$PATH
 # ---------------------------------------
 
 #   Java
@@ -435,15 +436,19 @@ EOT
         alias love="/Applications/love.app/Contents/MacOS/love"
 # ---------------------------------------
 
+#   .NET
+        export PATH=$HOME/.dotnet/tools:$PATH
+# ---------------------------------------
+
 #   Python
 #       Anaconda
-        export PATH=$PATH:$HOME/opt/anaconda3/bin:$PATH
+        export PATH=$HOME/opt/anaconda3/bin:$PATH
 
 #       IBM Qiskit virtual environment
         alias Qiskit=". /usr/local/anaconda3/bin/activate && conda activate $HOME/opt/anaconda3/envs/Qiskitenv"
 
 #       Poetry -- Finally, cargo for Python!!        
-        export PATH=$PATH:$HOME/.poetry/bin:$PATH
+        export PATH=$HOME/.poetry/bin:$PATH
 
 #       Anaconda init
         # >>> conda init >>>
@@ -465,7 +470,12 @@ EOT
    
 #   Rust
 #       Cargo
-        export PATH=$PATH:$HOME/.cargo/bin:$PATH
+        export PATH=$HOME/.cargo/bin:$PATH
+# ---------------------------------------
+
+#   Scala
+#       Coursier (and Scala's tools)
+        export PATH=$HOME/Library/Application\ Support/Coursier/bin:$PATH
 # ---------------------------------------
 
 # --------------------------------------------------------------------------------------------------
@@ -475,7 +485,7 @@ EOT
 #   -------------------------------------
 
 #   Bison Syntax Analyzer
-        export PATH="/usr/local/opt/bison/bin:$PATH"
+        export PATH=/usr/local/opt/bison/bin:$PATH
 # ---------------------------------------
 
 #   Homebrew LLVM
@@ -521,3 +531,5 @@ EOT
 # --------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
+# Add .NET Core SDK tools
+export PATH=$HOME/.dotnet/tools:$PATH

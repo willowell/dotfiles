@@ -1,19 +1,19 @@
 // Place your settings in this file to overwrite the default settings
 {
     // Global editor settings
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontSize": 15,
-    "editor.fontWeight": "bold",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 14,
+    "editor.fontWeight": "500",
     "editor.fontLigatures": true,
     
     // Tab settings
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     
     // ALWAYS insert spaces instead of tabs.
     "editor.insertSpaces": true,
 
     // Always override the file's settings in favour of these settings.
-    "editor.detectIndentation": true,
+    "editor.detectIndentation": false,
 
     // Render invisible control characters.
     "editor.renderControlCharacters": true,
@@ -156,23 +156,50 @@
     // Programming language-specific settings
     "[asm]": {},
     "[cpp]": {},
-    "[css][scss]": { 
+    "[css]": { 
         "editor.tabSize": 2 
     },
     "[haskell]": {
         "editor.autoIndent": "none",
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "vigoo.stylish-haskell",
+    },
+    "[javascript]": { 
         "editor.tabSize": 2 
     },
-    "[javascript][javascriptreact]": { 
+    "[javascriptreact]": { 
         "editor.tabSize": 2 
     },
-    "[typescript][typescriptreact]": { 
+    "[json]": { 
         "editor.tabSize": 2 
     },
-    "[json][jsonc]": { 
+    "[jsonc]": { 
         "editor.tabSize": 2 
     },
+    "[scss]": { 
+        "editor.tabSize": 2 
+    },
+    "[typescript]": { 
+        "editor.tabSize": 2 
+    },
+    "[typescriptreact]": { 
+        "editor.tabSize": 2 
+    },
+    
     "window.zoomLevel": 0,
+    "window.restoreWindows": "none",
     "explorer.confirmDelete": false,
     "workbench.startupEditor": "welcomePage",
+    "haskell.formattingProvider": "stylish-haskell",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "files.watcherExclude": {
+      "**/.bloop": true,
+      "**/.metals": true,
+      "**/.ammonite": true
+    },
+    "metals.javaHome": "/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home",
+    "terminal.integrated.commandsToSkipShell": [
+      "language-julia.interrupt"
+    ],
+    "typescript.updateImportsOnFileMove.enabled": "always",
 }
