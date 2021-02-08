@@ -189,7 +189,7 @@
     "window.zoomLevel": 0,
     "window.restoreWindows": "none",
     "explorer.confirmDelete": false,
-    "workbench.startupEditor": "welcomePage",
+    "workbench.startupEditor": "newUntitledFile",
     "haskell.formattingProvider": "stylish-haskell",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "files.watcherExclude": {

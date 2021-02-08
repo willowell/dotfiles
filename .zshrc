@@ -85,6 +85,15 @@
 #   ------------------------------------------------------------
     export BLOCKSIZE=1k
 
+#     Disable Homebrew analytics & add security
+#     https://old.reddit.com/r/privacy/comments/bkypkg/maos_power_users_did_you_know_that_brew_uses/emnla43/
+
+    export HOMEBREW_NO_ANALYTICS=1
+
+    export HOMEBREW_NO_INSECURE_REDIRECT=1
+
+    export HOMEBREW_CASK_OPTS=--require-sha
+
 # --------------------------------------------------------------------------------------------------
 
 #   -------------------------------------
@@ -372,7 +381,7 @@ EOT
 #   /usr/local/sbin path for Homebrew
     export PATH=/usr/local/sbin:$PATH
 
-    export PATH=/.local/bin:$PATH
+    export PATH=$HOME/.local/bin:$PATH
 
     export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
 
@@ -384,14 +393,20 @@ EOT
 #   -------------------------------------
 
 #   C++
-#       vcpkg
-        # A convenience alias.
-        # Assumes vcpkg is installed in the home directory.
-        alias vcpkg=$HOME/vcpkg/vcpkg
 
-        # Updates vcpkg by pulling the latest version from GitHub
-        # and bootstrapping vcpkg.
-        alias vcpkg_update="cd ~/vcpkg && git pull && ./bootstrap-vcpkg.sh && cd .."
+#   vcpkg
+    # A convenience alias.
+    # Assumes vcpkg is installed in the home directory.
+    alias vcpkg=$HOME/vcpkg/vcpkg
+
+    # Updates vcpkg by pulling the latest version from GitHub
+    # and bootstrapping vcpkg.
+    alias vcpkg_update="cd ~/vcpkg && git pull && ./bootstrap-vcpkg.sh && cd .."
+# ---------------------------------------
+
+#   Carp Lisp
+
+    export CARP_DIR=$HOME/Carp/
 # ---------------------------------------
 
 #   Dart
@@ -399,83 +414,102 @@ EOT
   	export PATH=$HOME/.pub-cache/bin:$PATH
 # ---------------------------------------
 
+#   Deno
+
+  	export PATH=$HOME/.deno/bin:$PATH
+# ---------------------------------------
+
 #   Haskell
-#       ghcup
-        [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
-#       Haskell
-        export PATH=/Library/Haskell/bin:$PATH
+#   ghcup
+    [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
-#       Cabal
-        export PATH=/.cabal/bin:$PATH
+#   Haskell
+    export PATH=/Library/Haskell/bin:$PATH
+
+#   Cabal
+    export PATH=/.cabal/bin:$PATH
 # ---------------------------------------
 
 #   Java
-#       JAVA_HOME -- points to AdoptOpenJDK
-        export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home
 
-#       JavaFX PATH variables
-        export PATH_TO_JAVAFX=/usr/local/JavaFX/javafx-sdk-11/lib
+#   JAVA_HOME -- points to AdoptOpenJDK
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home
 
-#       JavaFX Alias
-        alias javafx="java --module-path $PATH_TO_JAVAFX --add-modules=javafx.controls"
+#   JavaFX PATH variables
+    export PATH_TO_JAVAFX=/usr/local/JavaFX/javafx-sdk-11/lib
+
+#   JavaFX Alias
+    alias javafx="java --module-path $PATH_TO_JAVAFX --add-modules=javafx.controls"
 # ---------------------------------------
 
 #   JavaScript and NodeJS
-#       Node Version Manager
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-        [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#   Node Version Manager
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # ---------------------------------------
 
 #   Julia
-        alias julia="/Applications/Julia-1.5.app/Contents/Resources/julia/bin/julia"
+
+    alias julia="/Applications/Julia-1.5.app/Contents/Resources/julia/bin/julia"
 # ---------------------------------------
 
 #   LÖVE
-        alias love="/Applications/love.app/Contents/MacOS/love"
+
+    alias love="/Applications/love.app/Contents/MacOS/love"
 # ---------------------------------------
 
 #   .NET
-        export PATH=$HOME/.dotnet/tools:$PATH
+
+    export PATH=$HOME/.dotnet/tools:$PATH
+# ---------------------------------------
+
+#   Perl 5
+
+    eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 # ---------------------------------------
 
 #   Python
-#       Anaconda
-        export PATH=$HOME/opt/anaconda3/bin:$PATH
 
-#       IBM Qiskit virtual environment
-        alias Qiskit=". /usr/local/anaconda3/bin/activate && conda activate $HOME/opt/anaconda3/envs/Qiskitenv"
+#   Anaconda
+    export PATH=$HOME/opt/anaconda3/bin:$PATH
 
-#       Poetry -- Finally, cargo for Python!!        
-        export PATH=$HOME/.poetry/bin:$PATH
+#   IBM Qiskit virtual environment
+    alias Qiskit=". /usr/local/anaconda3/bin/activate && conda activate $HOME/opt/anaconda3/envs/Qiskitenv"
 
-#       Anaconda init
-        # >>> conda init >>>
-        # !! Contents within this block are managed by 'conda init' !!
-        __conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-        if [ $? -eq 0 ]; then
-            \eval "$__conda_setup"
+#   Poetry -- Finally, cargo for Python!!        
+    export PATH=$HOME/.poetry/bin:$PATH
+
+#   Anaconda init
+    # >>> conda init >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        \eval "$__conda_setup"
+    else
+        if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/anaconda3/etc/profile.d/conda.sh"
+            CONDA_CHANGEPS1=false conda activate base
         else
-            if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
-                . "/anaconda3/etc/profile.d/conda.sh"
-                CONDA_CHANGEPS1=false conda activate base
-            else
-                \export PATH="/anaconda3/bin:$PATH"
-            fi
+            \export PATH="/anaconda3/bin:$PATH"
         fi
-        unset __conda_setup
-        # <<< conda init <<<
+    fi
+    unset __conda_setup
+    # <<< conda init <<<
 # ---------------------------------------
    
 #   Rust
-#       Cargo
-        export PATH=$HOME/.cargo/bin:$PATH
+
+#   Cargo
+    export PATH=$HOME/.cargo/bin:$PATH
 # ---------------------------------------
 
 #   Scala
-#       Coursier (and Scala's tools)
-        export PATH=$HOME/Library/Application\ Support/Coursier/bin:$PATH
+
+#   Coursier (and Scala's tools)
+    export PATH=$HOME/Library/Application\ Support/Coursier/bin:$PATH
 # ---------------------------------------
 
 # --------------------------------------------------------------------------------------------------
@@ -484,25 +518,30 @@ EOT
 #   2.  Tools
 #   -------------------------------------
 
+#   Convenience Aliases
+
+    alias update_all="brew update; rustup update; ghcup upgrade"
+
 #   Bison Syntax Analyzer
-        export PATH=/usr/local/opt/bison/bin:$PATH
+
+    export PATH=/usr/local/opt/bison/bin:$PATH
 # ---------------------------------------
 
 #   Homebrew LLVM
-        # WARNING: This will add LLVM/Clang to the PATH. 
-        # If a toolchain depends on an Apple Clang-specific feature,
-        # this will break that toolchain. For instance, GHC 8.10+ depends on Apple Clang!
-        #
-        # However, it is sometimes useful to have LLVM/Clang on the path, for instance when:
-        #   - using a tool that does not exist in Apple Clang, like opt
-        #   - using brand new C/C++ features that Apple hasn't merged yet
-        #   - building certain tools that depend on LLVM/Clang, like Odin.
-        #
-        # export PATH="/usr/local/opt/llvm/bin:$PATH"
+    # WARNING: This will add LLVM/Clang to the PATH. 
+    # If a toolchain depends on an Apple Clang-specific feature,
+    # this will break that toolchain. For instance, GHC 8.10+ depends on Apple Clang!
+    #
+    # However, it is sometimes useful to have LLVM/Clang on the path, for instance when:
+    #   - using a tool that does not exist in Apple Clang, like opt
+    #   - using brand new C/C++ features that Apple hasn't merged yet
+    #   - building certain tools that depend on LLVM/Clang, like Odin.
+    #
+    # export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-#       # Include and Linker Paths
-        export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
-        export CPPFLAGS="-I/usr/local/opt/llvm/include"
+#   # Include and Linker Paths
+    export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+    export CPPFLAGS="-I/usr/local/opt/llvm/include"
 # ---------------------------------------
 
 #   OPAM
@@ -511,25 +550,23 @@ EOT
 
 #   vterm
 #   This is mostly for Emacs.
-        vterm_printf(){
-            if [ -n "$TMUX" ]; then
-                # Tell tmux to pass the escape sequences through
-                # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-                printf "\ePtmux;\e\e]%s\007\e\\" "$1"
-            elif [ "${TERM%%-*}" = "screen" ]; then
-                # GNU screen (screen, screen-256color, screen-256color-bce)
-                printf "\eP\e]%s\007\e\\" "$1"
-            else
-                printf "\e]%s\e\\" "$1"
-            fi
-        }
-
-        if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-            alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+    vterm_printf(){
+        if [ -n "$TMUX" ]; then
+            # Tell tmux to pass the escape sequences through
+            # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+            printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+        elif [ "${TERM%%-*}" = "screen" ]; then
+            # GNU screen (screen, screen-256color, screen-256color-bce)
+            printf "\eP\e]%s\007\e\\" "$1"
+        else
+            printf "\e]%s\e\\" "$1"
         fi
+    }
+
+    if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+        alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+    fi
 # --------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
-# Add .NET Core SDK tools
-export PATH=$HOME/.dotnet/tools:$PATH
