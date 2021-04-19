@@ -111,7 +111,7 @@
         
         "r": "Rscript",
         "racket": "racket",
-        "raku": "raku",
+        "raku": "rakudo",
         "ruby": "ruby",
         "rust": "cd $dir && cargo run",
         
@@ -176,6 +176,9 @@
     "[jsonc]": { 
         "editor.tabSize": 2 
     },
+    "[perl6]": {
+      "editor.tabSize": 3
+    },
     "[scss]": { 
         "editor.tabSize": 2 
     },
@@ -185,8 +188,6 @@
     "[typescriptreact]": { 
         "editor.tabSize": 2 
     },
-    
-    "window.zoomLevel": 0,
     "window.restoreWindows": "none",
     "explorer.confirmDelete": false,
     "workbench.startupEditor": "newUntitledFile",
@@ -197,9 +198,10 @@
       "**/.metals": true,
       "**/.ammonite": true
     },
-    "metals.javaHome": "/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home",
+    "metals.javaHome": "/Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home",
     "terminal.integrated.commandsToSkipShell": [
       "language-julia.interrupt"
     ],
     "typescript.updateImportsOnFileMove.enabled": "always",
+    "sqltools.useNodeRuntime": true,
 }

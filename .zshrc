@@ -417,6 +417,10 @@ EOT
 #   Deno
 
   	export PATH=$HOME/.deno/bin:$PATH
+
+#   Aleph Alias
+
+    alias daleph=$HOME/.deno/bin/aleph
 # ---------------------------------------
 
 #   Haskell
@@ -434,7 +438,7 @@ EOT
 #   Java
 
 #   JAVA_HOME -- points to AdoptOpenJDK
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home
 
 #   JavaFX PATH variables
     export PATH_TO_JAVAFX=/usr/local/JavaFX/javafx-sdk-11/lib
@@ -473,31 +477,9 @@ EOT
 
 #   Python
 
-#   Anaconda
-    export PATH=$HOME/opt/anaconda3/bin:$PATH
-
-#   IBM Qiskit virtual environment
-    alias Qiskit=". /usr/local/anaconda3/bin/activate && conda activate $HOME/opt/anaconda3/envs/Qiskitenv"
-
 #   Poetry -- Finally, cargo for Python!!        
     export PATH=$HOME/.poetry/bin:$PATH
 
-#   Anaconda init
-    # >>> conda init >>>
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        \eval "$__conda_setup"
-    else
-        if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
-            . "/anaconda3/etc/profile.d/conda.sh"
-            CONDA_CHANGEPS1=false conda activate base
-        else
-            \export PATH="/anaconda3/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-    # <<< conda init <<<
 # ---------------------------------------
    
 #   Rust
@@ -520,7 +502,9 @@ EOT
 
 #   Convenience Aliases
 
-    alias update_all="brew update; rustup update; ghcup upgrade"
+    alias update_common="brew update; rustup update; ghcup upgrade; cabal update; stack upgrade; opam update"
+
+    alias update_infreq="omz update; cd ~; vcpkg_update"
 
 #   Bison Syntax Analyzer
 
@@ -540,8 +524,8 @@ EOT
     # export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 #   # Include and Linker Paths
-    export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
-    export CPPFLAGS="-I/usr/local/opt/llvm/include"
+    # export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+    # export CPPFLAGS="-I/usr/local/opt/llvm/include"
 # ---------------------------------------
 
 #   OPAM
@@ -570,3 +554,4 @@ EOT
 # --------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------
+if [ -e /Users/whowell/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/whowell/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
